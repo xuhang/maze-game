@@ -49,14 +49,14 @@ class MazeGame {
     }
 
     updateLevelDisplay() {
-        document.getElementById('current-level').textContent = this.currentLevel;
+        document.getElementById('currentLevel').textContent = this.currentLevel;
     }
 
     updateLevelHistory() {
         const historyContainer = document.getElementById('level-history');
         historyContainer.innerHTML = this.levelHistory.map((record, index) => `
             <div class="level-record">
-                第${index + 1}关: ${record}
+                Level ${index + 1}: ${record}
             </div>
         `).join('');
     }
@@ -77,7 +77,7 @@ class MazeGame {
 
     updateTimer() {
         const currentTime = (Date.now() - this.startTime) / 1000;
-        document.getElementById('current-time').textContent = this.formatTime(currentTime);
+        document.getElementById('timer').textContent = this.formatTime(currentTime);
     }
 
     formatTime(seconds) {
@@ -92,12 +92,12 @@ class MazeGame {
             this.initGame();
             this.start();
         } else {
-            alert('恭喜你通关了所有关卡！');
+            alert('Congratulations! You have completed all levels!');
         }
     }
 
     start() {
-        document.getElementById('preview-screen').style.display = 'block';
+        // document.getElementById('preview-screen').style.display = 'block';
         document.getElementById('game-screen').style.display = 'none';
         
         this.drawFullMaze();
@@ -111,7 +111,8 @@ class MazeGame {
             if (countdown === 0) {
                 clearInterval(timer);
                 document.getElementById('preview-screen').style.display = 'none';
-                document.getElementById('game-screen').style.display = 'block';
+                document.getElementById('game-screen').style.display = 'flex';
+                document.getElementById('game-screen').style.justifyContent = 'center';
                 this.drawPlayerView();
                 this.startTimer();
             }
@@ -125,10 +126,22 @@ class MazeGame {
             this.updateLevelHistory();
             
             setTimeout(() => {
-                alert(`恭喜通过第${this.currentLevel}关！用时：${timeSpent}`);
+                this.showLevelCompleteMessage(`Level ${this.currentLevel} completed! Time: ${timeSpent}`);
                 this.nextLevel();
             }, 100);
         }
+    }
+
+    showLevelCompleteMessage(message) {
+        const toast = document.createElement('div');
+        toast.className = 'level-complete-toast';
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        
+        // 3秒后自动移除提示
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
     }
 
     setupCanvas() {

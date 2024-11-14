@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>迷宫逃脱</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Runner - Challenge Your Mind</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="game-container">
-        <div id="game-info">
-            <div id="level-info">Level: <span id="current-level">1</span></div>
-            <div id="timer">Time: <span id="current-time">00:00</span></div>
+        <h1 class="game-title">Maze Runner</h1>
+
+        <!-- <div class="game-description"></div>
+            <h2>Welcome to the Challenge!</h2>
+            <p>Navigate through increasingly complex mazes using arrow keys or WASD. 
+               Find the quickest path to the exit and challenge yourself to beat your best times!</p>
+        </div> -->
+
+        <div class="controls">
+            <h3>How to Play</h3>
+            <p>🎮 Use Arrow Keys to move</p>
+            <p>🎯 Find the exit marked in green</p>
+            <p>⏱️ Complete levels as fast as you can</p>
+            <p>🏆 Try to beat your previous records</p>
         </div>
+
+        <div class="stats">
+            <div class="stat-item">Level: <span id="currentLevel">1</span></div>
+            <div class="stat-item">Time: <span id="timer">0:00</span></div>
+            <div class="stat-item">Best Time: <span id="bestTime">-</span></div>
+        </div>
+
         <div id="game-history">
             <h3>Records</h3>
             <div id="level-history"></div>
@@ -18,7 +39,7 @@
             <canvas id="preview-canvas"></canvas>
             <div id="countdown">10</div>
         </div>
-        <div id="game-screen" style="display: none;">
+        <div id="game-screen">
             <canvas id="game-canvas"></canvas>
         </div>
     </div>
