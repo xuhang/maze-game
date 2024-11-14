@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>迷宫逃脱</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="game-info">
+            <div id="level-info">Level: <span id="current-level">1</span></div>
+            <div id="timer">Time: <span id="current-time">00:00</span></div>
+        </div>
+        <div id="game-history">
+            <h3>Records</h3>
+            <div id="level-history"></div>
+        </div>
+        <div id="preview-screen">
+            <canvas id="preview-canvas"></canvas>
+            <div id="countdown">10</div>
+        </div>
+        <div id="game-screen" style="display: none;">
+            <canvas id="game-canvas"></canvas>
+        </div>
+    </div>
+    <script src="maze.js"></script>
+    <script src="game.js"></script>
+</body>
+</html> 
