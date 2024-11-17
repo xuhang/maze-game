@@ -18,10 +18,83 @@ class MazeGame {
         
         this.initGame();
         this.initUI();
+        this.initMobileControls();
         
         // 在构造函数中只绑定一次事件监听器
         document.addEventListener('keydown', this.handleKeydown);
     }
+
+    initMobileControls() {
+        const dPad = document.querySelector('.d-pad');
+        if (!dPad) return;
+
+        // 处理触摸事件
+        dPad.addEventListener('touchstart', (e) => {
+            const button = e.target.closest('.d-pad-btn');
+            if (!button) return;
+            
+            e.preventDefault(); // 防止双击缩放
+            const direction = button.dataset.direction;
+            this.handleMove(direction);
+        });
+
+        // 处理点击事件（用于测试）
+        dPad.addEventListener('click', (e) => {
+            const button = e.target.closest('.d-pad-btn');
+            if (!button) return;
+            
+            const direction = button.dataset.direction;
+            this.handleMove(direction);
+        });
+    }
+
+    handleMove(direction) {
+        const moves = {
+            'up': { x: 0, y: -1 },
+            'down': { x: 0, y: 1 },
+            'left': { x: -1, y: 0 },
+            'right': { x: 1, y: 0 }
+        };
+
+        const move = moves[direction];
+        if (move) {
+            const newX = this.playerPos.x + move.x;
+            const newY = this.playerPos.y + move.y;
+            // this.tryMove(newX, newY);
+            if (newX >= 0 && newX < this.maze.width && 
+                newY >= 0 && newY < this.maze.height && 
+                this.maze.grid[newY][newX] === 0) {
+                this.playerPos.x = newX;
+                this.playerPos.y = newY;
+                this.drawPlayerView();
+                this.checkWin();
+            }
+        }
+    }
+
+    // 更新现有的键盘事件处理
+    initKeyboardControls() {
+        document.addEventListener('keydown', (e) => {
+            const keyMoves = {
+                'ArrowUp': 'up',
+                'ArrowDown': 'down',
+                'ArrowLeft': 'left',
+                'ArrowRight': 'right',
+                'w': 'up',
+                's': 'down',
+                'a': 'left',
+                'd': 'right'
+            };
+
+            const direction = keyMoves[e.key.toLowerCase()];
+            if (direction) {
+                e.preventDefault();
+                this.handleMove(direction);
+            }
+        });
+    }
+
+
 
     initGame() {
         // 确保迷宫尺寸为奇数

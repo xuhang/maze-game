@@ -220,3 +220,95 @@ body {
     padding: 10px 20px;
     border-radius: 8px;
 }
+
+/* 移动端控制按钮 */
+/* 移动端控制按钮样式 */
+.mobile-controls {
+    display: none; /* 默认隐藏，只在移动端显示 */
+    margin-top: 20px;
+}
+
+.d-pad {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+}
+
+.d-pad-btn {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(74, 144, 226, 0.9);
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.d-pad-btn:active {
+    transform: scale(0.95);
+    background: rgba(74, 144, 226, 1);
+}
+
+.d-pad-btn.up { top: 0; left: 60px; }
+.d-pad-btn.left { top: 60px; left: 0; }
+.d-pad-btn.right { top: 60px; right: 0; }
+.d-pad-btn.down { bottom: 0; left: 60px; }
+
+/* 响应式布局调整 */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 10px;
+    }
+
+    .game-title {
+        font-size: 1.8em;
+    }
+
+    .game-description {
+        font-size: 0.9em;
+        padding: 0 15px;
+    }
+
+    .game-board {
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .mobile-controls {
+        display: block;
+    }
+
+    .controls {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .stats {
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 1em;
+    }
+
+    .stat-item {
+        padding: 8px 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* 确保画布不会溢出屏幕 */
+#gameCanvas {
+    max-width: 100%;
+    height: auto;
+}
