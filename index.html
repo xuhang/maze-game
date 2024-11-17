@@ -3,28 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Challenge your mind with Maze Runner - An exciting browser-based puzzle game featuring multiple levels, time challenges, and brain-training exercises. Perfect for puzzle enthusiasts of all ages.">
-    <meta name="keywords" content="maze game, puzzle game, brain training, online game, maze runner, logic puzzle">
-    <meta name="robots" content="index, follow">
-    <!-- Open Graph 标签建议 -->
-    <meta property="og:title" content="Maze Runner - Challenge Your Mind">
-    <meta property="og:description" content="Navigate through increasingly complex mazes in this exciting puzzle game. Challenge yourself and beat your best times!">
-    <meta property="og:image" content="./assets/maze.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://maze-runner.popgame.fun">
 
-    <!-- Twitter Card 标签建议 -->
-    <meta name="twitter:card" content="./assets/maze.png">
-    <meta name="twitter:title" content="Maze Runner - Challenge Your Mind">
-    <meta name="twitter:description" content="Navigate through increasingly complex mazes in this exciting puzzle game!">
+
+
+    <!-- SEO Meta Tags -->
+    <title>MAZE ESCAPER - TRY TO FIND A QUICK WAY OUT OF THE MAZE</title>
+    <meta name="description" content="YOU ARE IN A DANGEROUS MAZE, AND YOU ONLY HAVE A VAGUE MEMORY OF IT IN YOUR MIND. CAN YOU FIND A WAY OUT?">
+    <meta name="keywords" content="VAGUE MEMORY, DANGEROUS MAZE, REMEMBER THE PATH OUT, PUZZLE GAME, BRAIN TRAINING">
+    <meta name="author" content="POPGAME">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://maze.popgame.fun/">
+    <meta property="og:title" content="MAZE ESCAPER - TRY TO FIND A QUICK WAY OUT OF THE MAZE">
+    <meta property="og:description" content="YOU ARE IN A DANGEROUS MAZE, AND YOU ONLY HAVE A VAGUE MEMORY OF IT IN YOUR MIND. CAN YOU FIND A WAY OUT?">
+    <meta property="og:image" content="./assets/maze.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://maze.popgame.fun/">
+    <meta name="twitter:title" content="MAZE ESCAPER - TRY TO FIND A QUICK WAY OUT OF THE MAZE">
+    <meta name="twitter:description" content="YOU ARE IN A DANGEROUS MAZE, AND YOU ONLY HAVE A VAGUE MEMORY OF IT IN YOUR MIND. CAN YOU FIND A WAY OUT?">
     <meta name="twitter:image" content="./assets/maze.png">
-    <title>Maze Runner - Challenge Your Mind</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" as="style">
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/pressstart2p/v14/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/maze-logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/maze-logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/maze-logo.png">
+
+    <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <meta name="google-adsense-account" content="ca-pub-1501730606981885">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1501730606981885" crossorigin="anonymous"></script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+
+    
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="game-container">
-        <h1 class="game-title">Maze Runner</h1>
+        <h1 class="game-title">
+            
+            Maze Escaper
+        </h1>
 
         <!-- <div class="game-description"></div>
             <h2>Welcome to the Challenge!</h2>
@@ -35,7 +69,7 @@
         <div class="controls">
             <h3>How to Play</h3>
             <p>🎮 Use Arrow Keys to move</p>
-            <p>🎯 Find the exit marked in green</p>
+            <p>🎯 Try your best to remember the path to the exit</p>
             <p>⏱️ Complete levels as fast as you can</p>
             <p>🏆 Try to beat your previous records</p>
         </div>
@@ -52,7 +86,7 @@
         </div>
         <div id="preview-screen">
             <canvas id="preview-canvas"></canvas>
-            <div id="countdown">10</div>
+            <div id="countdown">12</div>
         </div>
         <div id="game-screen">
             <canvas id="game-canvas"></canvas>

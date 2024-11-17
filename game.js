@@ -97,11 +97,12 @@ class MazeGame {
     }
 
     start() {
-        // document.getElementById('preview-screen').style.display = 'block';
+        document.getElementById('preview-screen').style.display = 'flex';
+        document.getElementById('preview-screen').style.justifyContent = 'center';
         document.getElementById('game-screen').style.display = 'none';
         
         this.drawFullMaze();
-        let countdown = 10;
+        let countdown = 12;
         const countdownElement = document.getElementById('countdown');
         
         const timer = setInterval(() => {
